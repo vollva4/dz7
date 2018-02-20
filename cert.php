@@ -1,6 +1,6 @@
 <?php
 	header('Content-type: image/png');
-	$GETValue = isset($_GET['name']) ? $_GET['name'] : 'Иванов Иван';
+	$GETValue = isset($_GET['name']) ? $_GET['name'] : 'Иванов Иван' . '  Результат: 100% ' ;
 	renderCaptcha($GETValue);
 	function renderCaptcha($code) {
 		$im = imagecreatetruecolor(800, 566);

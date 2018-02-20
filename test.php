@@ -37,7 +37,12 @@
 						$result++;
 					}
 				}
+				
 				echo "Ваш результат: $result правильных из " . count($userAnswer);
+				if ($result ===count($userAnswer)) {
+				$userName = $_POST['name'];
+				header('Location: http://university.netology.ru/u/avolvach/me/dz7/cert.php?name='.$userName);
+				}
 			} else {
     			echo "Не все поля формы заполнены. Повторите ввод!";
     		}
@@ -53,15 +58,7 @@
 	} else {
 		die("Файл не существует!<p><a href=\"list.php\">Выбрать другой тест</a></p>");
 	}
-	if($_POST) {
-	$answer = isset($_POST[$inputName]) ? $_POST[$inputName] : '';
-	if($answer == $rezult) {
-		$userName = $_POST['name'];
-		header('Location: http://university.netology.ru/u/avolvach/me/dz7/cert.php?name='.$userName);
-	} else {
-		echo "Попробуйте еще раз...";
-	}
-	}
+
 ?>
 
 <!DOCTYPE html>
