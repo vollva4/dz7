@@ -1,8 +1,8 @@
 <?php
 	header('Content-type: image/png');
 	$GETValue = isset($_GET['name']) ? $_GET['name'] : 'Иванов Иван  Результат: 100% ' ;
-	renderCaptcha($GETValue);
-	function renderCaptcha($code) {
+	renderCert($GETValue);
+	function renderCert($code) {
 		$im = imagecreatetruecolor(800, 566);
 		$backColor = imagecolorallocate($im, 255, 224, 221);
 		$textColor = imagecolorallocate($im, 0, 0, 0);
