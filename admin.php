@@ -20,7 +20,8 @@ if (isset($_FILES['userfile']['name']))
 			} else {
 				$tmp_name = $_FILES['userfile']['tmp_name'];
         		move_uploaded_file($tmp_name, $uploaddir);
-        		header('Location: http://university.netology.ru/u/avolvach/me/dz7/list.php');
+        		header('Location: list.php');
+        		exit();
         		//echo "Файл $name успешно отправлен!</br>";
         	}
 		}
