@@ -7,7 +7,9 @@
 	} elseif (isset($_GET['test_id'])&&(is_numeric($_GET['test_id']))) {
 		$id = htmlspecialchars(stripslashes($_GET['test_id']))-1;
 	} else  {
-		die("Некорретные данные!");
+		http_response_code(404);
+		echo 'Некорректные данные!';
+		exit(1);;
 	}
 	
 	$id = (intval($id));
