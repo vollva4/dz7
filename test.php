@@ -15,8 +15,12 @@
 	if ($id <= (count($filelist)-3)) {
 		$json = $dir . "$filelist[$id]";
 		$test = json_decode(file_get_contents($json), true);
-		if (isset($test['1']['textQwestion'])) {
-			if (isset($_POST['test_id'])) {	
+		if (!isset($test['1']['textQwestion'])) {
+			http_response_code(404);
+			echo 'Cтраница не найдена!';
+			exit(1);
+		}
+		if (isset($_POST['test_id'])) {	
 				if (isset($_POST['userAnswer'])) {
 					$userAnswer = $_POST['userAnswer'];
 					if(count($userAnswer) === count($test))	{	
@@ -37,12 +41,7 @@
     			} else {
     				echo "Введите ответы!";
     			}
-			}
-		} else {
-			http_response_code(404);
-			echo 'Cтраница не найдена!';
-			exit(1);
-		}
+			} 
 	} else {
 		http_response_code(404);
 		echo 'Файл не существует!';
